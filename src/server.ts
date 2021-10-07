@@ -1,5 +1,4 @@
 import express from 'express';
-// const { response } = require("express");
 const app = express();
 const port =3333;
 
