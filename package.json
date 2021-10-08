@@ -18,10 +18,12 @@
   "author": "Pedro Duarte",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.22.0",
+    "cors": "^2.8.5",
+    "cros": "^1.0.1",
     "express": "^4.17.1"
   },
-  "homepage" : "git+https://github.com/Pedro-m-Duarte/MVP/",
-
+  "homepage": "git+https://github.com/Pedro-m-Duarte/MVP/",
   "devDependencies": {
     "@types/express": "^4.17.13",
     "nodemon": "^2.0.13",
