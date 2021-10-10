@@ -6,4 +6,5 @@ const GenreList = new GenreController();
 
 router.get('/genreList', GenreList.getGenreList);
 
-export default Router;
+
+export default router;

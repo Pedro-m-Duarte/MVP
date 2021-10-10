@@ -1,14 +1,21 @@
 import express from 'express';
-import cors from 'cors'; // configurar o node_modules (uma pasta dentro do /src e uma fora (dentro do MVP))
-const app = express();
-const port =3333;
+import cors from 'cors';
 import router from './API/routes';
+
+const app = express();
+const port = 8000;
 
 app.use(cors());
 app.use(express.json());
 app.use(router);
 
+app.listen(port, () => {
+	console.log(`Running the application on: http://localhost:${port}`);
+});
 
-app.listen(port, ()=> {
-  console.log("Running application in http://localhost:"+port);
+app.get("/", (request, response) => {
+  return response.json({
+    helloWord: "Hello Word",
+    App: "NodeJs App"
+  });
 });

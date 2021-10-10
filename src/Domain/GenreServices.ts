@@ -1,4 +1,4 @@
-import GetGenresList from "../Repository/Repository";
+import {GetGenresList} from "../Repository/Repository";
 
 class GenreService{
   async getGenresList(){
