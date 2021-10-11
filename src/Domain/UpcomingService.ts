@@ -6,7 +6,7 @@ class UpcomingService{
 		if(repositoryResponse.status){
 			return repositoryResponse;
 		};
-	}
-}
+	};
+};
 
 export default UpcomingService;
