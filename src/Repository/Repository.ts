@@ -2,8 +2,6 @@ import api from '../config/axios';
 import api_key from '../config/env';
 
 //need to build a function to identify the movie id 
-const movie_id = "580489";
-
 async function GetGenresList() {
 	try {
     const response = await api.get(`/3/genre/movie/list?api_key=${api_key}&language=en-US`);
@@ -24,7 +22,8 @@ async function GetGenresList() {
 	};
 };
 
-async function GetUpcomingList(){
+
+async function GetUpcomingMovies(){
 	try {
 		const response = await api.get(`/3/movie/upcoming?api_key=${api_key}&language=en-US`);
 		if(response.status >= 200 && response.status<300){
@@ -43,7 +42,7 @@ async function GetUpcomingList(){
 	}
 }
 
-async function GetMovieDetails(){
+async function GetMovieDetails(movie_id:number){
 	try {
 		const response = await api.get(`3/movie/${movie_id}?api_key=${api_key}&language=en-US`);
 		if(response.status >= 200 && response.status<300){
@@ -62,7 +61,7 @@ async function GetMovieDetails(){
 	}
 }
 
-async function GetMovieVideo(){
+async function GetMovieVideo(movie_id:number){
 	try {
 		const response = await api.get(`3/movie/${movie_id}/videos?api_key=${api_key}&language=en-US`);
 		if(response.status >= 200 && response.status<300){
@@ -81,4 +80,23 @@ async function GetMovieVideo(){
 	}
 }
 
-export   {GetGenresList, GetUpcomingList, GetMovieDetails, GetMovieVideo};
+async function GetMoviesByGenre(genre:number){
+	try {
+		const response = await api.get(`/3/discover/movie?api_key=${api_key}&language=en-US&year=2021&with_genres=${genre}`);
+		if(response.status >= 200 && response.status<300){
+			const moviesByGenre= response.data;
+			return{
+				status: true,
+				data: moviesByGenre,
+			};
+		};
+			return{
+				status: false,
+				data:"Falied the request",
+			};
+	} catch (err) {
+			throw (err);
+	}
+}
+
+export   {GetGenresList, GetUpcomingMovies, GetMovieDetails, GetMovieVideo, GetMoviesByGenre};

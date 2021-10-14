@@ -1,15 +1,16 @@
 import { Router } from "express";
 const router = Router();
-import {GenreController,UpcomingController, MovieDetailsController, MovieVideoController} from "./api";
+import MovieController from "./MovieController";
+import GenreController from "./GenreController";
 
 const GenreList = new GenreController();
-const upcomingList = new UpcomingController();
-const movieDetails = new MovieDetailsController();
-const movieVideo = new MovieVideoController();
+const Movie = new MovieController();
 
 router.get('/genreList', GenreList.getGenreList);
-router.get('/upcomingList', upcomingList.getUpcomingList);
-router.get('/movieDetails', movieDetails.getMovieDetails);
-router.get('/movieVideo', movieVideo.getMovieVideo);
+
+router.get('/upcomingList', Movie.getUpcomingList);
+router.get('/movieDetails/:movie_id', Movie.getMovieDetails);
+router.get('/movieVideo/:movie_id', Movie.getMovieVideo);
+router.get('/movieByGenre/:genre',Movie.getMovieByGenre);
 
 export default router;
