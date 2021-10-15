@@ -1,7 +1,7 @@
 import api from '../config/axios';
 import api_key from '../config/env';
 
-//need to build a function to identify the movie id 
+
 async function GetGenresList() {
 	try {
     const response = await api.get(`/3/genre/movie/list?api_key=${api_key}&language=en-US`);
