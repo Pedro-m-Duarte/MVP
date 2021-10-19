@@ -10,7 +10,8 @@ class GenreController{
 				return response.send(genreList);
 			}
 
-			return response.send({ err: "Err" });
+			return response.
+			status(500).send({ err: "Err" });
 
 		} catch (err) {
 			throw err;

@@ -7,10 +7,9 @@ const GenreList = new GenreController();
 const Movie = new MovieController();
 
 router.get('/genreList', GenreList.getGenreList);
-
 router.get('/upcomingList', Movie.getUpcomingList);
 router.get('/movieDetails/:movie_id', Movie.getMovieDetails);
 router.get('/movieVideo/:movie_id', Movie.getMovieVideo);
 router.get('/movieByGenre/:genre',Movie.getMovieByGenre);
 
-export default router;
+export default router; 
